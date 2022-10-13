@@ -2,13 +2,14 @@ import React, {useState} from 'react'
 import { useNavigate } from 'react-router-dom'
 
 const Signup = () => {
-  const [credentials, setCredentials] = useState({name:"",email: "", password: "",cpassword:""}) 
+  const [credentials, setCredentials] = useState({name:"",email: "", password: ""}) 
   let navigate = useNavigate(); 
   const handleSubmit = async (e) => {
    
     e.preventDefault();
+    
     const {name,email,password}=credentials;
-    const response = await fetch("http://localhost:5000/api/auth/createuser", {
+    const response = await fetch("https://fintrackbackend-production-89dd.up.railway.app/api/auth/createuser", {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -24,7 +25,7 @@ const Signup = () => {
 
     }
     else{
-        alert("Invalid credentials");
+        alert("User with this email id already exist");
     }
 }
 
@@ -47,12 +48,12 @@ const onChange = (e)=>{
   </div>
   <div className="mb-3">
     <label htmlFor="password" className="form-label">Password</label>
-    <input type="password" className="form-control" id="password" name="password" minLength={5} required  onChange={onChange} />
+    <input type="password" className="form-control" id="password" name="password" minLength={5} required  onChange={onChange} placeholder="password should have minimum length of 5 characters"/>
   </div>
-  <div className="mb-3">
+  {/* <div className="mb-3">
     <label htmlFor="cpassword" className="form-label" >Confirm Password</label>
     <input type="password" className="form-control" id="cpassword" name="cpassword" minLength={5} required onChange={onChange}/>
-  </div>
+  </div> */}
 
   <button type="submit" className="btn btn-primary">Submit</button>
 </form>

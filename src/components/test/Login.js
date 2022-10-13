@@ -1,7 +1,7 @@
 
 import React, {useState} from 'react'
 import { useNavigate } from 'react-router-dom'
-
+import './form.css'
 
 const Login = (props) => {
     const [credentials, setCredentials] = useState({email: "", password: ""}) 
@@ -9,7 +9,7 @@ const Login = (props) => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        const response = await fetch("http://localhost:5000/api/auth/login", {
+        const response = await fetch("https://fintrackbackend-production-89dd.up.railway.app/api/auth/login", {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -34,7 +34,7 @@ const Login = (props) => {
     }
 
     return (
-        <div className="container mt-2">
+        <div  className="container mt-2" >
             <h1 className="my-2">Login to continue...</h1>
             <form  onSubmit={handleSubmit}>
                 <div className="mb-3 my-3">
