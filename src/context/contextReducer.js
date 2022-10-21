@@ -22,6 +22,12 @@ case 'DELETE_TRANSACTION':
        sessionStorage.setItem('transactions', JSON.stringify(transactions));
       return transactions;
 
+      case 'GET_TRANSACTIONS':
+        return {
+          ...state,
+          transactions: action.payload
+        }
+
 default:
  return state;
 }

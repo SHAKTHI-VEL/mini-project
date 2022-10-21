@@ -19,7 +19,7 @@ const Master= () => {
     let navigate = useNavigate();
     let {getTransactions,transactions}=context;
     useEffect(() => {
-        if(localStorage.getItem('token')){
+        if(sessionStorage.getItem('token')){
             
       getTransactions();
       sessionStorage.setItem('transactions', JSON.stringify(transactions));

@@ -20,8 +20,8 @@ const Signup = () => {
     console.log(json);
     if (json.success){
         // Save the auth token and redirect
-        localStorage.setItem('token', json.authtoken); 
-        navigate("/dashboard");
+        sessionStorage.setItem('token', json.authtoken); 
+        navigate("/");
 
     }
     else{

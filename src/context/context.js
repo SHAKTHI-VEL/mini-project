@@ -17,7 +17,7 @@ export const Provider = ({ children }) => {
     //     const config = {
     //         headers: {
     //             'Content-Type': 'application/json',
-    //           'auth-token':localStorage.getItem('token')
+    //           'auth-token':sessionStorage.getItem('token')
     //         }
     //       }
         
@@ -39,7 +39,7 @@ export const Provider = ({ children }) => {
         const config = {
           headers: {
             'Content-Type': 'application/json',
-            'auth-token':localStorage.getItem('token')
+            'auth-token':sessionStorage.getItem('token')
           }
         }
     const res = await axios.post('https://fintrackbackend-production-89dd.up.railway.app/api/v1/transactions', transaction, config);
@@ -55,7 +55,7 @@ export const Provider = ({ children }) => {
             const config = {
                 headers: {
                   'Content-Type': 'application/json',
-                  'auth-token':localStorage.getItem('token')
+                  'auth-token':sessionStorage.getItem('token')
                 }
               }
           
@@ -63,7 +63,7 @@ export const Provider = ({ children }) => {
             
               dispatch({
                 type: 'GET_TRANSACTIONS',
-                payload: res.data
+                payload: res
               });
             
           }
