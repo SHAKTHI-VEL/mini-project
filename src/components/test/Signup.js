@@ -9,7 +9,7 @@ const Signup = () => {
     e.preventDefault();
     
     const {name,email,password}=credentials;
-    const response = await fetch("https://fintrackbackend-production-89dd.up.railway.app/api/auth/createuser", {
+    const response = await fetch("https://fintrack99.herokuapp.com/api/auth/createuser", {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
